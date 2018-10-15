@@ -30,8 +30,8 @@ public class MainMenu{
         } else if( ch.equals("3" ) ) {   
                 R.showMenu();
         } else if( ch.equals("4") ) {
-                //Club C = new Club();
-                //C.showmenu();
+                Club C = new Club();
+                C.showMenu();
         } else if( ch.equals("5") ) {
                 CheckInCheckOut Cin = new CheckInCheckOut();
                 Cin.showMenu();

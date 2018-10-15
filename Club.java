@@ -1,7 +1,6 @@
 import java.util.Scanner ; 
 
 class Club {
-    private float price[] = new float[10];
     
     public void showMenu(){
         int ch ; 
@@ -10,18 +9,21 @@ class Club {
         System.out.println("----------------------------------------");
         System.out.println("*            Clubs Menu                *");
 		System.out.println("----------------------------------------");
-		System.out.println("*\t1. Entering Customer                *");
-		System.out.println("*\t2. Exiting Customer                 *");
-		System.out.println("*\t3. Go Back                     *");
+		System.out.println("*\t1. Game Zone                        *");
+        System.out.println("*\t2. Dance                            *");
+        System.out.println("*\t3. Gym & Relaxation Center          *");
+		System.out.println("*\t4. Go Back                          *");
 		System.out.println("----------------------------------------");
 		System.out.print("\nEnter Your Choice: ");
         ch = sc.nextInt();
         
         if( ch == 1 ) {
-            enteringCustomer();
+            gamezone();
         } else if( ch == 2 ) {
-            exitingCustomer();
+            dance();
         } else if( ch == 3 ) {
+            gymandrelax();
+        } else if( ch == 4 ) {
             new MainMenu();
         } else {
             System.out.println("Invalid Choice !");
@@ -29,13 +31,94 @@ class Club {
 
     }
 
-    public void enteringCustomer(){
+    public void gamezone(){
+        
+        Scanner sc = new Scanner(System.in); 
+        Analytics A = new Analytics();
+        Billing B = new Billing(); 
 
+        System.out.print( "\nEnter Mobile Number: " );
+        String mobileNumber = sc.next();
+
+        if( A.isMemberOrNot(mobileNumber) ) {
+            System.out.print("\nEnter Hours for Playing Games: " );
+            int hrs = sc.nextInt();
+
+            int amount = hrs * 100 ; 
+
+            B.updateBill(mobileNumber, amount);
+            System.out.println("--------------------------------");
+            System.out.println("Your Total Bill is: " + B.getBill(mobileNumber) ) ;
+            System.out.println("--------------------------------");
+            B.updateBill(mobileNumber, -amount);
+            
+        } else {
+            System.out.println("--------------------------------");
+            System.out.println("Sorry You are Not a Member ! ") ;
+            System.out.println("--------------------------------");
+        }
+
+        showMenu();
     }
 
-    public void exitingCustomer(){
+    public void dance(){
+        Scanner sc = new Scanner(System.in); 
+        Analytics A = new Analytics();
+        Billing B = new Billing(); 
 
+        System.out.print( "\nEnter Mobile Number: " );
+        String mobileNumber = sc.next();
+
+        if( A.isMemberOrNot(mobileNumber) ) {
+            System.out.print("\nEnter Hours for Dance Class: " );
+            int hrs = sc.nextInt();
+
+            int amount = hrs * 50 ; 
+
+            B.updateBill(mobileNumber, amount);
+            System.out.println("--------------------------------");
+            System.out.println("Your Total Bill is: " + B.getBill(mobileNumber) ) ;
+            System.out.println("--------------------------------");
+            B.updateBill(mobileNumber, -amount);
+            
+        } else {
+            System.out.println("--------------------------------");
+            System.out.println("Sorry You are Not a Member ! ") ;
+            System.out.println("--------------------------------");
+        }
+
+        showMenu();
     }
+
+    public void gymandrelax(){
+        Scanner sc = new Scanner(System.in); 
+        Analytics A = new Analytics();
+        Billing B = new Billing(); 
+
+        System.out.print( "\nEnter Mobile Number: " );
+        String mobileNumber = sc.next();
+
+        if( A.isMemberOrNot(mobileNumber) ) {
+            System.out.print("\nEnter Hours for Gym/Relaxation: " );
+            int hrs = sc.nextInt();
+
+            int amount = hrs * 500 ; 
+
+            B.updateBill(mobileNumber, amount);
+            System.out.println("--------------------------------");
+            System.out.println("Your Total Bill is: " + B.getBill(mobileNumber) ) ;
+            System.out.println("--------------------------------");
+            B.updateBill(mobileNumber, -amount);
+            
+        } else {
+            System.out.println("--------------------------------");
+            System.out.println("Sorry You are Not a Member ! ") ;
+            System.out.println("--------------------------------");
+        }
+
+        showMenu();
+    }
+
 }
 
 
