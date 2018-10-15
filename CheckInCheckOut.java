@@ -103,7 +103,7 @@ class CheckInCheckOut {
 	public void checkIn(){
 		Scanner sc = new Scanner(System.in);
 		Analytics A = new Analytics();
-
+		Billing B = new Billing();
 		System.out.print("\nEnter Customer's Mobile Number: ");
 		String mobileNumber = sc.next();
 
@@ -142,6 +142,9 @@ class CheckInCheckOut {
 							A.allocateDeallocateRoom("allocate", r, daysOfStay, mobileNumber);
 			
 							System.out.println("Room " + r + " is Allocated to " + mobileNumber );
+
+							B.updateBill(mobileNumber, daysOfStay * 1000 ); 
+
 						} else {
 							System.out.println("Rooms Are Full ! Sorry !");
 						}
