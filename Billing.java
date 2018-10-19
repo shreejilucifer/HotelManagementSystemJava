@@ -30,7 +30,7 @@ class Billing {
 	public void createRecord(String mobileNumber){
 
 		String filePath = "BillingRecord/" + "Bill-" + mobileNumber + ".txt";
-		System.out.println(filePath);
+		//System.out.println(filePath);
 
 		try{
 			FileOutputStream f = new FileOutputStream(new File(filePath));

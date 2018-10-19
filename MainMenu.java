@@ -18,7 +18,8 @@ public class MainMenu{
         System.out.println("*\t3. Restaurant          *");
         System.out.println("*\t4. Club                *");
         System.out.println("*\t5. Check In/Check Out  *");
-        System.out.println("*\t6. Exit                *");
+        System.out.println("*\t6. Staff Management    *");
+        System.out.println("*\t7. Exit                *");
         System.out.println("--------------------------------");
         System.out.print("\nEnter Your Choice: " );
         String ch = sc.next();
@@ -36,6 +37,9 @@ public class MainMenu{
                 CheckInCheckOut Cin = new CheckInCheckOut();
                 Cin.showMenu();
         } else if( ch.equals("6") ) {
+                Staff S = new Staff(); 
+                S.showMenu();       
+        } else if( ch.equals("7") ) {
                 System.out.println("--------------------------------");
                 System.out.println("*          Thank You           *");
                 System.out.println("--------------------------------");
@@ -87,6 +91,8 @@ public static void checkDirectories(String abc){
         checkDirectories("/CustomersAna");
         checkDirectories("/RoomsAna");
         checkDirectories("/BillingRecord");
+        checkDirectories("/StaffManagement");
+        
                 try{
                         new MainMenu();
                     } catch(NoSuchElementException e){
