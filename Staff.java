@@ -86,24 +86,37 @@ class Staff implements Serializable{
         int ch ; 
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("----------------------------------------");
-        System.out.println("*            Staff Menu                *");
-		System.out.println("----------------------------------------");
-		System.out.println("*\t1. New Staff                        *");
-        System.out.println("*\t2. Display Staff                    *");
-		System.out.println("*\t3. Go Back                          *");
-		System.out.println("----------------------------------------");
-		System.out.print("\nEnter Your Choice: ");
-        ch = sc.nextInt();
-        
-        if( ch == 1 ) {
-            getinfo();
-        } else if( ch == 2 ) {
-            display();
-        } else if( ch == 3 ) {
-            new MainMenu();
+        System.out.println("Enter Password: ");
+        String password = sc.next(); 
+
+        if( password.equals("hotel123") ) 
+        {
+            System.out.println("----------------------------------------");
+            System.out.println("*            Staff Menu                *");
+            System.out.println("----------------------------------------");
+            System.out.println("*\t1. New Staff                        *");
+            System.out.println("*\t2. Display Staff                    *");
+            System.out.println("*\t3. Go Back                          *");
+            System.out.println("----------------------------------------");
+            System.out.print("\nEnter Your Choice: ");
+            ch = sc.nextInt();
+            
+            if( ch == 1 ) {
+                getinfo();
+            } else if( ch == 2 ) {
+                display();
+            } else if( ch == 3 ) {
+                new MainMenu();
+            } else {
+                System.out.println("Invalid Choice !");
+            }
+            
         } else {
-            System.out.println("Invalid Choice !");
+            System.out.println("--------");
+            System.out.println("Password is Wrong ! ");
+            System.out.println("--------");
+
+            showMenu();
         }
 
     }
